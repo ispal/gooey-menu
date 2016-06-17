@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gooey nav</title>
+</head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
+      <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 17 -7" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+        <symbol id="icon-camera" viewBox="0 0 24 24">
+            <title>camera</title>
+            <path class="path1" d="M7.125 14.25c0 2.692 2.183 4.875 4.875 4.875s4.875-2.183 4.875-4.875-2.183-4.875-4.875-4.875-4.875 2.183-4.875 4.875zM22.5 6h-5.25c-0.375-1.5-0.75-3-2.25-3h-6c-1.5 0-1.875 1.5-2.25 3h-5.25c-0.825 0-1.5 0.675-1.5 1.5v13.5c0 0.825 0.675 1.5 1.5 1.5h21c0.825 0 1.5-0.675 1.5-1.5v-13.5c0-0.825-0.675-1.5-1.5-1.5zM12 20.906c-3.676 0-6.656-2.98-6.656-6.656s2.98-6.656 6.656-6.656c3.676 0 6.656 2.98 6.656 6.656s-2.98 6.656-6.656 6.656zM22.5 10.5h-3v-1.5h3v1.5z"></path>
+        </symbol>
+        <symbol id="icon-bubble" viewBox="0 0 24 24">
+            <title>bubble</title>
+            <path class="path1" d="M12 1.5c6.627 0 12 4.365 12 9.75s-5.373 9.75-12 9.75c-0.636 0-1.261-0.041-1.871-0.118-2.578 2.578-5.654 3.040-8.629 3.108v-0.631c1.606-0.787 3-2.22 3-3.859 0-0.229-0.018-0.453-0.051-0.673-2.714-1.787-4.449-4.518-4.449-7.577 0-5.385 5.373-9.75 12-9.75z"></path>
+        </symbol>
+        <symbol id="icon-users" viewBox="0 0 24 24">
+            <title>users</title>
+            <path class="path1" d="M17.226 18.876c-0.444-0.070-0.454-1.281-0.454-1.281s1.305-1.281 1.59-3.004c0.765 0 1.238-1.831 0.473-2.476 0.032-0.678 0.984-5.324-3.834-5.324s-3.866 4.646-3.834 5.324c-0.765 0.644-0.293 2.476 0.473 2.476 0.284 1.723 1.59 3.004 1.59 3.004s-0.010 1.211-0.454 1.281c-1.431 0.226-6.774 2.562-6.774 5.124h18c0-2.562-5.343-4.898-6.774-5.124zM8.064 19.285c1.033-0.636 2.288-1.226 3.317-1.58-0.369-0.526-0.78-1.241-1.039-2.087-0.361-0.295-0.655-0.716-0.844-1.233s-0.261-1.098-0.202-1.633c0.042-0.384 0.152-0.742 0.32-1.057-0.102-1.092-0.174-3.235 1.229-4.798 0.544-0.606 1.232-1.042 2.055-1.305-0.147-1.518-0.918-3.299-3.901-3.299-4.818 0-3.866 4.646-3.834 5.324-0.765 0.644-0.293 2.476 0.473 2.476 0.284 1.723 1.59 3.004 1.59 3.004s-0.010 1.211-0.454 1.281c-1.431 0.226-6.774 2.562-6.774 5.124h7.725c0.11-0.072 0.223-0.144 0.339-0.215z"></path>
+        </symbol>
+        <symbol id="icon-heart" viewBox="0 0 24 24">
+            <title>heart</title>
+            <path class="path1" d="M24 8.394c0 2.024-0.872 3.844-2.261 5.106h0.011l-7.5 7.5c-0.75 0.75-1.5 1.5-2.25 1.5s-1.5-0.75-2.25-1.5l-7.489-7.5c-1.389-1.261-2.261-3.082-2.261-5.106 0-3.808 3.087-6.894 6.894-6.894 2.024 0 3.844 0.872 5.106 2.261 1.261-1.389 3.082-2.261 5.106-2.261 3.808 0 6.894 3.087 6.894 6.894z"></path>
+        </symbol>
+      </defs>
+    </svg>
+    <div class="container">
+        <div class="header">
+            <div class="menu-button">
+                <div class="menu-button__bar"></div>
+                <div class="menu-button__bar"></div>
+                <div class="menu-button__bar"></div>
+            </div>
+            <div class="gooey-wrapper">
+                <div class="blender"></div>
+                <ul class="menu">
+                    <li class="menu__item menu__item--blue">
+                        <a href="" class="menu__link">
+                            <svg class="icon icon-camera"><use xlink:href="#icon-camera"></use></svg>
+                        </a>
+                    </li>
+                    <li class="menu__item menu__item--green">
+                        <a href="" class="menu__link">
+                            <svg class="icon icon-users"><use xlink:href="#icon-users"></use></svg>
+                        </a>
+                    </li>
+                    <li class="menu__item menu__item--yellow">
+                        <a href="" class="menu__link">
+                            <svg class="icon icon-bubble"><use xlink:href="#icon-bubble"></use></svg>
+                        </a>
+                    </li>
+                    <li class="menu__item menu__item--red">
+                        <a href="" class="menu__link">
+                            <svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <section class="content__box"></section>
+            <section class="content__box"></section>
+            <section class="content__box"></section>
+            <section class="content__box"></section>
+            <section class="content__box"></section>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+
+            var header = $('.header'),
+                menuButton = $('.menu-button');
+
+            menuButton.on('click', function() {
+                $(this).toggleClass('close');
+                header.toggleClass('open');
+                header.removeClass('selected');
+            });
+
+            $('.menu__link').on('click', function(evt) {
+                evt.preventDefault();
+                header.addClass('selected');
+                menuButton.addClass('back');
+                menuButton.removeClass('open');
+            });
+        });
+    </script>
+</body>
+</html>
